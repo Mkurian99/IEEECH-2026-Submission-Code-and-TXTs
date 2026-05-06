@@ -16,3 +16,9 @@ Save the text as a plain .txt file encoded in UTF-8:
 corpora/lotr_original.txt
 Then generate shuffled variants using the same method as Genesis (see README.md).
 The paper analyzes Book 1 only (The Fellowship of the Ring).
+
+
+If you need to shuffle texts on your own, these sources should suffice 
+
+Word Shuffler: https://onlinetools.com/random/shuffle-words 
+Sentence Shuffler: https://onlinetools.com/random/shuffle-sentences 
