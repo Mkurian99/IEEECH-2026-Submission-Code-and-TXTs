@@ -42,6 +42,8 @@
 !pip install transformers torch python-docx bert-score -q
 !pip install scikit-learn spacy gensim bertopic umap-learn hdbscan -q
 !python -m spacy download en_core_web_sm -q
+!pip install umap-learn -q
+from umap import UMAP
 
 
 # ============================================================================
@@ -78,6 +80,7 @@ import spacy
 from gensim import corpora
 from gensim.models import LdaModel
 from bertopic import BERTopic
+from umap import UMAP 
 from docx import Document
 
 # Colab file upload
@@ -689,9 +692,11 @@ def run_bertopic(original_text, word_shuffled_text, sent_shuffled_text, results)
         if len(orig_docs) < 10:
             return np.array([0.0]), np.array([0.0]), np.array([0.0])
 
-        # FIX [9b]: fit_transform on original only
+        umap_model = UMAP(random_state=42)
+
         print("   Training BERTopic on original text only...")
         bertopic_model = BERTopic(
+            umap_model=umap_model,
             language="english",
             calculate_probabilities=True,
             verbose=False,
