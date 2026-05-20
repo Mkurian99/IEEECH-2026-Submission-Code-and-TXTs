@@ -131,7 +131,7 @@ def calculate_cohens_d(scores_a, scores_b):
     return cohens_d, mean_a, mean_b, std_a, std_b
 
 
-def split_into_windows(text, window_size=200, overlap=0.5):
+def split_into_windows(text, window_size=200, overlap=0.0):
     """
     Split text into overlapping windows of tokens.
     Used by Perplexity only (overlap required for sliding window inference).
